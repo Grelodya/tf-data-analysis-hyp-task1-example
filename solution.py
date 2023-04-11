@@ -20,16 +20,12 @@ def solution(x_success: int,
       if alternative not in ('two-sided', 'less', 'greater'):
           raise ValueError("alternative not recognized\n"
                            "should be 'two-sided', 'less' or 'greater'")
-
       if alternative == 'two-sided':
           return 2 * (1 - scipy.stats.norm.cdf(np.abs(z_stat)))
-
       if alternative == 'less':
           return scipy.stats.norm.cdf(z_stat)
-
       if alternative == 'greater':
-          return 1 - scipy.stats.norm.cdf(z_stat)
-    
+          return 1 - scipy.stats.norm.cdf(z_stat)    
     return (p1 - p2) / np.sqrt(P * (1 - P) * (1. / n1 + 1. / n2))
   
   if proportions_diff_z_test(proportions_diff_z_stat_ind(x_success, x_cnt, y_success, y_cnt)), 'less') < 0.1:
