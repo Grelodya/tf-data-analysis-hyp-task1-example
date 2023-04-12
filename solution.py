@@ -28,8 +28,8 @@ def solution(x_success: int,
       if alternative == 'greater':
           return 1 - scipy.stats.norm.cdf(z_stat)    
   
-  if proportions_diff_z_test(proportions_diff_z_stat_ind(x_success, x_cnt, y_success, y_cnt)), 'less') < 0.1:
-    answer = True
-  else:
-    answer = False
+    if proportions_diff_z_test(proportions_diff_z_stat_ind(x_success, x_cnt, y_success, y_cnt), 'less') < 0.1:
+      answer = True
+    else:
+      answer = False
     return answer
